@@ -11,7 +11,9 @@ openai.api_key = os.getenv('OPENAI_API_KEY', '')
 client = AsyncOpenAI(
     api_key=openai.api_key,
     max_retries=3,
-    timeout=20.0
+    timeout=20.0,
+    organization='',
+    project=''
 )
 
 # Implementa o retry com backoff exponencial para tratar Rate Limits
@@ -25,6 +27,9 @@ async def conversar_com_chatgpt(mensagem_usuario):
 
 # Função principal para gerenciar a interação
 async def main():
+    max_requests_per_minute = 60  # Limite máximo de requisições por minuto
+    request_interval = 60 / max_requests_per_minute  # Intervalo entre requisições
+
     while True:
         mensagem = input("Você: ")
         if mensagem.lower() in ['sair', 'exit', 'quit']:
@@ -35,7 +40,7 @@ async def main():
             resposta_chatgpt = await conversar_com_chatgpt(mensagem)
             if resposta_chatgpt:
                 print(f"ChatGPT: {resposta_chatgpt}")
-            await asyncio.sleep(5)  # Pausa manual de 5 segundos entre as requisições
+            await asyncio.sleep(request_interval)  # Controle de taxa de requisição
         except openai.APIConnectionError as e:
             print("O servidor não pôde ser alcançado. Verifique sua conexão de rede.")
             print(e.__cause__)
