@@ -8,7 +8,7 @@ from openai import APIConnectionError, RateLimitError, APIError
 load_dotenv()
 
 # Define sua chave de API da OpenAI a partir da variável de ambiente
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv('')
 
 # Inicializa o cliente assíncrono
 client = openai.AsyncOpenAI(
