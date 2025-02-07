@@ -14,12 +14,12 @@
         "outline": "outline.png"
     },
     "name": {
-        "short": "Simple_AI_bot${{APP_NAME_SUFFIX}}",
-        "full": "full name for Simple_AI_bot"
+        "short": "Ultron CSG${{APP_NAME_SUFFIX}}",
+        "full": "Ultron CSG Chat Bot"
     },
     "description": {
-        "short": "short description for Simple_AI_bot",
-        "full": "full description for Simple_AI_bot"
+        "short": "Chat bot with GPT",
+        "full": "Chat bot with GPT chat system"
     },
     "accentColor": "#FFFFFF",
     "bots": [
@@ -39,12 +39,12 @@
                     ],
                     "commands": [
                         {
-                            "title": "How can you help me?",
-                            "description": "How can you help me?"
+                            "title": "Se apresente para mim!",
+                            "description": "Se apresente para mim!"
                         },
                         {
-                            "title": "How to develop TeamsToolkit app?",
-                            "description": "How can I develop apps with Teams Toolkit?"
+                            "title": "Oque você pode fazer?",
+                            "description": "Oque você pode fazer?"
                         }
                     ]
                 }
